@@ -1,0 +1,364 @@
+/* 1. Importar fuentes de Google Fonts para un estilo elegante */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+/* 2. Reset básico y configuración global */
+:root {
+--color-principal: #6c757d; /* Gris sutil para texto secundario */
+--color-acento: #3d3a36; /* Un tono topo/beige para acentos */
+--color-texto-oscuro: #343a40; /* Negro casi total */
+--color-fondo: #f8f9fa; /* Fondo muy claro */
+--font-serif: 'Playfair Display', serif;
+--font-sans: 'Roboto', sans-serif;
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: var(--font-sans);
+color: var(--color-texto-oscuro);
+background-image: url('../images/fondo1.png');
+background-size: cover; 
+background-position: center center; 
+background-repeat: no-repeat;
+background-attachment: fixed; /* Efecto Parallax */
+line-height: 1.6;
+text-align: center;
+/* Reset de márgenes clave */
+margin: 0; 
+padding: 0;
+/* FIX: Evita el desplazamiento horizontal causado por elementos que desbordan */
+overflow-x: hidden;
+}
+
+/* 3. Contenedor principal para centrar el contenido y limitar el ancho */
+.contenedor-principal {
+/* Eliminamos 'max-width: 800px;' para que ocupe el 100% */
+width: 100%; /* Aseguramos que ocupe todo el ancho */
+margin: 0 auto;
+}
+
+/* 4. Estilo para la portada (contenedor superior) */
+.contenedor-superior {
+position: relative;
+width: 100%;
+min-height: 100vh; /* Ajustado de 100vh a 90vh para evitar problemas de altura en algunos navegadores */
+display: flex; /* Para centrar el contenido (si lo hay) dentro de él */
+flex-direction: column;
+justify-content: center; /* Centra verticalmente */
+align-items: center; /* Centra horizontalmente */
+color: white; /* Color de texto para el contenido superpuesto */
+text-align: center;
+box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Opcional: Sutil sombra */
+}
+
+
+        /* ESTILO CONSOLIDADO Y FADE-IN PARA LA IMAGEN DE NOMBRES */
+        .imgNombres {
+            height: auto;
+            width: 100%; /* Ocupa el 100% de su contenedor */
+            max-width: 800px; /* Limita el tamaño en desktop */
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+
+            /* ESTADO INICIAL PARA EL FADE */
+            opacity: 0;
+            transition: opacity 2s ease-in-out; /* Duración de la transición */
+        }
+        /* ESTADO FINAL QUE DISPARA JS */
+        .imgNombres.loaded {
+            opacity: 1; /* Transición a visible */
+        }
+.contenedor-superior .overlay-texto {
+background-color: rgba(0, 0, 0, 0.2); /* Fondo semitransparente para que el texto resalte */
+padding: 20px 40px;
+border-radius: 10px;
+}
+
+.contenedor-superior h1 {
+font-family: var(--font-serif);
+font-size: 4rem; /* Un poco más grande para impactar */
+color: #ffffff; /* Texto blanco para contraste con la imagen */
+text-transform: uppercase;
+letter-spacing: 8px; /* Un poco más espaciado */
+margin-bottom: 10px;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para que el texto resalte más */
+}
+
+.contenedor-superior .fecha-portada {
+font-family: var(--font-sans);
+font-size: 1.8rem;
+color: #f0f0f0; /* Blanco más suave */
+margin-bottom: 15px;
+text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.contenedor-superior .guardar-fecha {
+font-family: var(--font-serif);
+font-size: 1.5rem;
+color: #ffffff;
+font-style: italic;
+text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.contenedor-invitacion{
+background-color: #ffffff;
+}
+
+/* Ajustes para el .nombres-portada si lo mantienes debajo de la imagen */
+.nombres-portada {
+margin-top: 40px; /* Espacio si los nombres van DEBAJO de la imagen */
+margin-bottom: 40px;
+}
+.nombres-portada p {
+color: var(--color-acento);
+font-size: 1.8rem;
+font-family: var(--font-serif);
+font-style: italic;
+}
+
+   .reveal-section {
+            /* Estado inicial: invisible y ligeramente desplazado hacia abajo */
+            opacity: 0;
+            transform: translateY(30px);
+            /* Transición suave para la aparición */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition-delay: 0.1s; /* Ligero retraso */
+        }
+
+        /* Estado final: visible y en posición */
+        .reveal-section.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* ------------------------------------------- */
+
+
+/* 5. Estilo general para todos los contenedores de contenido */
+.contenedor-invitacion,
+.contenedor-regalos,
+.contenedor-vestimenta,
+.contenedor-asistencia,
+.contenedor-saludo {
+
+padding: 40px 0; 
+
+}
+
+.modal {
+    display: none; /* Crucial: inicia oculto */
+    position: fixed; 
+    z-index: 1000; /* Asegura que esté encima de todos los elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7); /* Fondo semi-transparente y oscuro */
+}
+
+/* El contenido del modal (la caja blanca) */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centra vertical y horizontalmente */
+    padding: 25px;
+    border: 1px solid #888;
+    width: 90%; 
+    max-width: 500px; /* Tamaño máximo para tablets y desktop */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+/* El botón para cerrar (X) */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.contenedor-regalos{
+background-color:#808080;
+}
+
+.contenedor-vestimenta{
+background-color: #C6A459;
+}
+
+.contenedor-saludo{
+background-color: #C6A459;
+}
+
+.contenedor-regalos p{
+color: whitesmoke;
+}
+
+.contenedor-regalos h2{ 
+color: whitesmoke;
+}
+
+.contenedor-regalos button {
+border-color: #ffffff;
+color: #ffffff;
+}
+.contenedor-regalos button:hover {
+background-color: #ffffff;
+color: #7a9991; 
+}
+
+.contenedor-vestimenta p{
+color: whitesmoke;
+}
+.contenedor-vestimenta h2{ 
+color: whitesmoke;
+}
+.contenedor-asistencia{
+background-color: transparent;
+}
+
+
+/* 6. Tipografía (títulos y texto) */
+h1 {
+font-family: var(--font-serif);
+font-size: 3.5rem; /* Más grande para el título de la pareja */
+text-transform: uppercase;
+letter-spacing: 5px;
+margin-bottom: 10px;
+}
+
+h2 {
+font-family: var(--font-serif);
+font-size: 2rem;
+text-transform: uppercase;
+margin-bottom: 15px;
+}
+
+p {
+font-size: 1.1rem;
+margin-bottom: 20px;
+color: var(--color-principal);
+}
+
+/* 7. Imágenes de sección (anillos, regalo, etc.) */
+#imgAnillos, #imgRegalo, #imgVestimenta {
+max-width: 150px; /* Tamaño más manejable para iconos/detalles */
+height: auto;
+margin-bottom: 20px;
+border-radius: 50%; /* Opcional: para dar un toque circular a las imágenes */
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 8. Estilo de los botones (importante para la identidad) */
+button {
+font-family: var(--font-sans);
+font-weight: 700;
+text-transform: uppercase;
+padding: 12px 30px;
+border: 1px solid var(--color-acento); /* Borde sutil */
+border-radius: 10%;
+background-color: #808080;
+color: white;
+cursor: pointer;
+transition: all 0.3s ease;
+border-radius: 5px;
+font-size: 1rem;
+letter-spacing: 1px;
+}
+
+button:hover {
+background-color: var(--color-acento);
+color: #ffffff;
+}
+
+/* 9. Estilo para el pie de página */
+footer {
+padding: 25px;
+background-color: #666666;
+color: #ffffff; /* Cambiado a blanco para mejor contraste en fondo oscuro */
+font-size: 0.8rem;
+}
+
+footer p{
+color: #ffffff;
+font-size: 100%;
+}
+
+/* 10. Estilos de sección específicos */
+
+.contenedor-invitacion p {
+white-space: pre-line; /* Mantiene los saltos de línea (\n) si los añades, o los espacios */
+}
+.contenedor-saludo p{
+color: whitesmoke;
+font-size: 120%;
+}
+
+
+.contenedor-saludo {
+font-style: italic;
+font-size: 1.2rem;
+padding: 60px 0; /* Ajustado el padding horizontal */
+color: whitesmoke;
+}
+
+/* 11. Media Query para responsividad en pantallas pequeñas */
+@media (max-width: 600px) {
+/* Tipografía General */
+h1 {
+font-size: 2.5rem;
+}
+
+h2 {
+font-size: 1.5rem;
+}
+
+p {
+font-size: 1rem;
+}
+
+/* Contenido de las secciones */
+.contenedor-invitacion,
+.contenedor-regalos,
+.contenedor-asistencia {
+padding: 30px 0; 
+}
+
+/* --- AJUSTES ESPECÍFICOS PARA .contenedor-superior (FIX aplicado aquí) --- */
+.contenedor-superior {
+min-height: 100vh; /* Se mantiene en 85vh */
+}
+.contenedor-superior h1 {
+font-size: 1.8rem; /* REDUCIDO AÚN MÁS para caber */
+letter-spacing: 2px; /* REDUCIDO AÚN MÁS para caber */
+}
+.contenedor-superior .fecha-portada {
+font-size: 1.2rem;
+}
+.contenedor-superior .guardar-fecha {
+font-size: 1rem;
+}
+.contenedor-superior .overlay-texto {
+padding: 10px 20px;
+}
+/* ---------------------------------------------------- */
+}
+
+/* Ajuste adicional para el h1 en tablets (768px) */
+@media (min-width: 601px) and (max-width: 900px) {
+.contenedor-superior h1 {
+font-size: 3.5rem; /* Ajuste intermedio para tablet */
+letter-spacing: 6px;
+}
+
+}

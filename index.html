@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de invitacion</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="contenedor-superior">
+        <img  class="imgNombres" src="./images/nombres.png" alt="nombres">
+
+        </div>
+        </div>
+    </div>
+    
+    <div class="contenedor-principal">
+        
+       
+        
+        <div class="contenedor-invitacion reveal-section">
+            <img id="imgAnillos" src="./images/anillos1.jpg" alt="anillos">
+            <h2>CEREMONIA Y FIESTA</h2>
+            <p>
+               Decidimos celebrar nuestro amor como más nos gusta:
+                con ustedes, nuestra gente querida
+                Los esperamos para compartir una tarde mágica en San Telmo,
+                con tango, brindis y alegria.
+
+                Sábado 27 de diciembre de 2025 - 18:30 hs
+                - Te esperamos en Michelangelo Legend -
+            </p>
+            <button onclick="window.open('https://maps.app.goo.gl/DyhAGRTkLNW75y3Q6', '_blank')">Como llegar</button>
+        </div>
+        
+        <div class="contenedor-regalos reveal-section" >
+            <img id="imgRegalo" src="./images/regalo1.jpg" alt="regalo">
+            <p> Si deseás realizarnos un regalo, podés colaborar con nuestra Luna de Miel…</p>
+            <button onclick="mostrarDatosBancarios()">Ver datos bancarios</button>
+        </div>
+
+        <div id="miModal" class="modal">
+            <div class="modal-content">
+            <span class="close" onclick="cerrarDatosBancarios()">&times;</span>
+            <h2>Datos Bancarios para Luna de Miel</h2>
+        
+                <p><strong>Titular:</strong> María Victoria y Christian</p>
+                <p><strong>Banco:</strong> XYZ Bank</p>
+                <p><strong>CBU:</strong> 0123456789123456789123</p>
+                <p><strong>Alias:</strong> LUNADEMIEL.VICYCHRIS</p>
+        </div>
+</div>
+        
+        <div class="contenedor-vestimenta reveal-section">
+            <img id="imgVestimenta" src="./images/vestimenta1.png" alt="vestimenta">
+            <h2>DRESS CODE</h2>
+            <p>Elegante</p>
+        </div>
+        
+        
+        <div class="contenedor-asistencia reveal-section">
+            <h2>CONFIRMACIÓN DE ASISTENCIA</h2>
+            <p> Esperamos que seas parte de esta gran celebración.<br> ¡Confirmanos tu asistencia!</p>
+            <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSe3Ks1qjhJCYms5skqt0dZ8jtjT4vCfpUvFvG2EdzEWgd5bJQ/viewform?usp=header', '_blank')">Confirmar Asistencia</button>
+        </div>
+        
+        <div class="contenedor-saludo reveal-section">
+            <p>¡Gracias por acompañarnos en este momento tan <br>importante!</p>
+        </div>
+
+    </div> <footer>
+        <p>Invitaciones Digitales Mi Momento Único. Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+    // --- FUNCIONES GLOBALES PARA EL MODAL ---
+
+        // 1. FUNCIÓN PARA MOSTRAR EL MODAL (Ahora es visible globalmente)
+        function mostrarDatosBancarios() {
+            var modal = document.getElementById("miModal");
+            modal.style.display = "block"; 
+        }
+
+        // 2. FUNCIÓN PARA CERRAR EL MODAL (Ahora es visible globalmente)
+        function cerrarDatosBancarios() {
+            var modal = document.getElementById("miModal");
+            modal.style.display = "none";
+        }
+
+        // 3. LÓGICA PARA CERRAR HACIENDO CLIC FUERA DEL MODAL
+        window.onclick = function(event) {
+            var modal = document.getElementById("miModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        // --- LÓGICA QUE REQUIERE EL DOM CARGADO (Se mantiene dentro del listener) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. FADE-IN DE IMAGEN DE NOMBRES (Portada) ---
+            const nameImage = document.querySelector('.imgNombres');
+            
+            const revealNameImage = () => {
+                if (nameImage) {
+                    nameImage.classList.add('loaded'); 
+                }
+            };
+
+            if (nameImage) {
+                nameImage.onload = revealNameImage;
+                if (nameImage.complete) {
+                    revealNameImage();
+                }
+            }
+
+            // --- 2. SCROLL REVEAL (Aparición de Secciones) ---
+            const sectionsToReveal = document.querySelectorAll('.reveal-section');
+
+            const observerOptions = {
+                root: null, 
+                rootMargin: '0px',
+                threshold: 0.15 
+            };
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                     observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sectionsToReveal.forEach(section => {
+                sectionObserver.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
