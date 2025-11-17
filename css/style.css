@@ -20,7 +20,7 @@ padding: 0;
 body {
 font-family: var(--font-sans);
 color: var(--color-texto-oscuro);
-background-image: url('../images/fondo1.png');
+background-image: url('../images/fondo4.png');
 background-size: cover; 
 background-position: center center; 
 background-repeat: no-repeat;
@@ -58,6 +58,7 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Opcional: Sutil sombra */
 
         /* ESTILO CONSOLIDADO Y FADE-IN PARA LA IMAGEN DE NOMBRES */
         .imgNombres {
+            margin-top: 50px;
             height: auto;
             width: 100%; /* Ocupa el 100% de su contenedor */
             max-width: 800px; /* Limita el tamaño en desktop */
@@ -69,6 +70,22 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Opcional: Sutil sombra */
         }
         /* ESTADO FINAL QUE DISPARA JS */
         .imgNombres.loaded {
+            opacity: 1; /* Transición a visible */
+        }
+
+        .nosCasamos{
+            margin-top: 120px;
+              height: auto;
+            width: 100%; /* Ocupa el 100% de su contenedor */
+            max-width: 400px; /* Limita el tamaño en desktop */
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+
+            /* ESTADO INICIAL PARA EL FADE */
+            opacity: 0;
+            transition: opacity 2s ease-in-out; /* Duración de la transición */
+
+        }
+        .nosCasamos.loaded {
             opacity: 1; /* Transición a visible */
         }
 .contenedor-superior .overlay-texto {
@@ -105,7 +122,55 @@ text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 
 .contenedor-invitacion{
 background-color: #ffffff;
+position: relative;
 }
+
+.contenedor-ubicacion{
+
+
+background-color: #ffffff;
+position: relative;
+text-align: center;
+padding: 40px 20px;
+}
+
+
+.texto-invitacion,
+.fecha-lugar {
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5; /* Mejora la legibilidad del texto largo */
+}
+
+.contenedor-ubicacion {
+    /* El color de fondo que seleccionaste (un tono dorado/marrón) */
+    background-color: #ffffff; 
+    color: black; /* Cambia el color del texto a blanco para que contraste con el fondo oscuro */
+}
+
+.michel {
+    /* Centra el logo y lo separa del texto/botón */
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 250px; 
+    height: auto;
+    margin-top: 25px; /* Espacio entre la fecha/lugar y el logo */
+    margin-bottom: 20px; /* Espacio entre el logo y el botón */
+}
+.michel {
+    /* Centra el logo y lo separa del texto/botón */
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 250px; 
+    height: auto;
+    margin-top: 25px; /* Espacio entre la fecha/lugar y el logo */
+    margin-bottom: 20px; /* Espacio entre el logo y el botón */
+}
+
 
 /* Ajustes para el .nombres-portada si lo mantienes debajo de la imagen */
 .nombres-portada {
@@ -258,6 +323,14 @@ border-radius: 50%; /* Opcional: para dar un toque circular a las imágenes */
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.nombre-blanco {
+    max-width: 400px; /* Limita el ancho máximo a 400px en escritorio */
+    width: 90%; /* Asegura que se adapte al 90% del ancho del contenedor en móvil */
+    height: auto;
+    margin-top: 20px; /* Espacio superior para separarlo del párrafo */
+}
+
+
 
 /* 8. Estilo de los botones (importante para la identidad) */
 button {
@@ -310,6 +383,34 @@ font-style: italic;
 font-size: 1.2rem;
 padding: 60px 0; /* Ajustado el padding horizontal */
 color: whitesmoke;
+}
+
+.contenedor-invitacion {
+    /* Asegura que el contenedor pueda alinear el texto de su contenido */
+    text-align: center; 
+}
+
+/* Centra el texto del párrafo */
+.contenedor-invitacion p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    /* Ajusta el ancho del texto para que no se vea como una línea infinita */
+    max-width: 600px; 
+}
+
+/* Estilo para el Logo */
+.michel {
+    /* 1. Lo convierte en un elemento de bloque para que ocupe su propia línea */
+    display: block; 
+    /* 2. Lo centra horizontalmente dentro de su contenedor */
+    margin-left: auto;
+    margin-right: auto;
+    /* 3. Asegura que tenga un tamaño manejable */
+    max-width: 250px; /* Ajusta este valor si es necesario */
+    height: auto;
+    /* 4. Agrega un espacio después del logo para separarlo del botón */
+    margin-bottom: 20px; 
 }
 
 /* 11. Media Query para responsividad en pantallas pequeñas */

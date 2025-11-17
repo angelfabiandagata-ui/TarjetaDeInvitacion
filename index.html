@@ -10,6 +10,7 @@
     
     <div class="contenedor-superior">
         <img  class="imgNombres" src="./images/nombres.png" alt="nombres">
+        <img  class="nosCasamos" src="./images/nosCasamos.png" alt="nosCasamos">
 
         </div>
         </div>
@@ -28,11 +29,26 @@
                 Los esperamos para compartir una tarde mágica en San Telmo,
                 con tango, brindis y alegria.
 
-                Sábado 27 de diciembre de 2025 - 18:30 hs
-                - Te esperamos en Michelangelo Legend -
             </p>
-            <button onclick="window.open('https://maps.app.goo.gl/DyhAGRTkLNW75y3Q6', '_blank')">Como llegar</button>
+
         </div>
+
+        <div class="contenedor-ubicacion reveal-section">
+            <h2 style="color:  #C6A459;">EN UN LUGAR MAGICO</h2>
+            <p class="fecha-lugar">
+            Sábado 27 de diciembre de 2025 <br> 18:30 hs<br>
+        </p>
+
+            <div class="logo-y-boton">
+            <p style="color:  #C6A459;">Te esperamos en</p>
+            <img class="michel" src="./images/Logo-Miche.png" alt="logo">
+            <p style="color:  #C6A459;">- MICHELANGELO LEGEND -</p>
+             <p>Balcarce 433 - San Telmo<br>CABA</p>
+            <button onclick="window.open('https://maps.app.goo.gl/DyhAGRTkLNW75y3Q6', '_blank')">Como llegar</button>
+            </div>
+
+        </div>
+
         
         <div class="contenedor-regalos reveal-section" >
             <img id="imgRegalo" src="./images/regalo1.jpg" alt="regalo">
@@ -66,7 +82,9 @@
         </div>
         
         <div class="contenedor-saludo reveal-section">
-            <p>¡Gracias por acompañarnos en este momento tan <br>importante!</p>
+            <h2 class="gracias">¡Gracias!</h2>
+                <p>Por acompañarnos en este momento tan <br>importante!</p>
+            <img class="nombre-blanco" src="./images/nombre-blanco.png" alt="nombres-blanco">
         </div>
 
     </div> <footer>
@@ -101,6 +119,7 @@
             // --- 1. FADE-IN DE IMAGEN DE NOMBRES (Portada) ---
             const nameImage = document.querySelector('.imgNombres');
             
+            
             const revealNameImage = () => {
                 if (nameImage) {
                     nameImage.classList.add('loaded'); 
@@ -114,6 +133,23 @@
                 }
             }
 
+            const nosCImage = document.querySelector('.nosCasamos');
+            
+            
+            const revealNosCImage = () => {
+                if (nosCImage) {
+                    nosCImage.classList.add('loaded'); 
+                }
+            };
+
+            if (nosCImage) {
+                nosCImage.onload = revealNameImage;
+                if (nosCImage.complete) {
+                    revealNosCImage();
+                }
+            }
+
+  
             // --- 2. SCROLL REVEAL (Aparición de Secciones) ---
             const sectionsToReveal = document.querySelectorAll('.reveal-section');
 
@@ -122,6 +158,7 @@
                 rootMargin: '0px',
                 threshold: 0.15 
             };
+        
 
             const sectionObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
