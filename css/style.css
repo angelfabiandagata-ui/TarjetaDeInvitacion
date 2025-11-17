@@ -315,7 +315,7 @@ color: var(--color-principal);
 }
 
 /* 7. Imágenes de sección (anillos, regalo, etc.) */
-#imgAnillos, #imgRegalo, #imgVestimenta {
+#imgAnillos, #imgRegalo, #imgVestimenta, #imgUbicacion {
 max-width: 150px; /* Tamaño más manejable para iconos/detalles */
 height: auto;
 margin-bottom: 20px;
