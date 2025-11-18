@@ -121,8 +121,17 @@ text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .contenedor-invitacion{
+
+      background-image: url(../images/fondo-div1.png);
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-color: #ffffff; 
 background-color: #ffffff;
 position: relative;
+
+
+
 }
 
 .contenedor-ubicacion{
@@ -145,9 +154,14 @@ padding: 40px 20px;
 }
 
 .contenedor-ubicacion {
-    /* El color de fondo que seleccionaste (un tono dorado/marrón) */
+    /* El color de fondo que seleccionaste (un tono dorado/marrón) */   
+    background-image: url(../images/fondo-div.png);
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;
     background-color: #ffffff; 
     color: black; /* Cambia el color del texto a blanco para que contraste con el fondo oscuro */
+    
 }
 
 .michel {
@@ -155,20 +169,11 @@ padding: 40px 20px;
     display: block; 
     margin-left: auto;
     margin-right: auto;
-    max-width: 250px; 
+    width: 100px; 
     height: auto;
     margin-top: 25px; /* Espacio entre la fecha/lugar y el logo */
     margin-bottom: 20px; /* Espacio entre el logo y el botón */
-}
-.michel {
-    /* Centra el logo y lo separa del texto/botón */
-    display: block; 
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 250px; 
-    height: auto;
-    margin-top: 25px; /* Espacio entre la fecha/lugar y el logo */
-    margin-bottom: 20px; /* Espacio entre el logo y el botón */
+    background-color: #ffffff;
 }
 
 
@@ -413,53 +418,78 @@ color: whitesmoke;
     margin-bottom: 20px; 
 }
 
-/* 11. Media Query para responsividad en pantallas pequeñas */
 @media (max-width: 600px) {
-/* Tipografía General */
-h1 {
-font-size: 2.5rem;
-}
+    /* Tipografía General */
+    h1 {
+        font-size: 2.5rem;
+    }
 
-h2 {
-font-size: 1.5rem;
-}
+    h2 {
+        font-size: 1.5rem;
+    }
 
-p {
-font-size: 1rem;
-}
+    p {
+        font-size: 1rem;
+    }
 
-/* Contenido de las secciones */
-.contenedor-invitacion,
-.contenedor-regalos,
-.contenedor-asistencia {
-padding: 30px 0; 
-}
+    /* Contenido de las secciones */
+    .contenedor-invitacion,
+    .contenedor-regalos,
+    .contenedor-asistencia,
+    .contenedor-ubicacion, /* Asegurar que todas las secciones tengan padding en móvil */
+    .contenedor-vestimenta,
+    .contenedor-saludo {
+        padding: 30px 15px; /* Reducción de padding lateral para aprovechar espacio */
+    }
 
-/* --- AJUSTES ESPECÍFICOS PARA .contenedor-superior (FIX aplicado aquí) --- */
-.contenedor-superior {
-min-height: 100vh; /* Se mantiene en 85vh */
-}
-.contenedor-superior h1 {
-font-size: 1.8rem; /* REDUCIDO AÚN MÁS para caber */
-letter-spacing: 2px; /* REDUCIDO AÚN MÁS para caber */
-}
-.contenedor-superior .fecha-portada {
-font-size: 1.2rem;
-}
-.contenedor-superior .guardar-fecha {
-font-size: 1rem;
-}
-.contenedor-superior .overlay-texto {
-padding: 10px 20px;
-}
-/* ---------------------------------------------------- */
+    /* --- AJUSTES ESPECÍFICOS PARA .contenedor-superior --- */
+    .contenedor-superior {
+        min-height: 100vh; 
+    }
+    .contenedor-superior h1 {
+        font-size: 1.8rem; 
+        letter-spacing: 2px; 
+    }
+    .contenedor-superior .fecha-portada {
+        font-size: 1.2rem;
+    }
+    .contenedor-superior .guardar-fecha {
+        font-size: 1rem;
+    }
+    .contenedor-superior .overlay-texto {
+        padding: 10px 20px;
+    }
+    /* ---------------------------------------------------- */
+    
+    /* Asegurar que el logo y las imágenes de sección se reduzcan */
+    .michel,
+    .imgNombres,
+    .nosCasamos,
+    #imgAnillos, #imgRegalo, #imgVestimenta, #imgUbicacion {
+        max-width: 90%;
+        width: auto;
+        height: auto;
+    }
+    
+    /* Reducir el tamaño de las imágenes circulares */
+    #imgAnillos, #imgRegalo, #imgVestimenta, #imgUbicacion {
+        max-width: 100px; 
+    }
+
+    /* Ajuste para el contenido del modal */
+    .modal-content {
+        margin: 50% auto; /* Empuja el modal más abajo en el móvil para que se vea completo */
+    }
 }
 
 /* Ajuste adicional para el h1 en tablets (768px) */
 @media (min-width: 601px) and (max-width: 900px) {
-.contenedor-superior h1 {
-font-size: 3.5rem; /* Ajuste intermedio para tablet */
-letter-spacing: 6px;
-}
-
+    .contenedor-superior h1 {
+        font-size: 3.5rem; 
+        letter-spacing: 6px;
+    }
+    /* Ajuste de tipografía general para tablets */
+    h1 { font-size: 3rem; }
+    h2 { font-size: 1.8rem; }
+    p { font-size: 1.05rem; }
 }
