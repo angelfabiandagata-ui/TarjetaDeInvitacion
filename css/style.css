@@ -68,10 +68,10 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Opcional: Sutil sombra */
 
         /* ESTILO CONSOLIDADO Y FADE-IN PARA LA IMAGEN DE NOMBRES */
         .imgNombres {
-            margin-top: 50px;
+            margin-top: 100px;
             height: auto;
-            width: 100%; /* Ocupa el 100% de su contenedor */
-            max-width: 800px; /* Limita el tamaño en desktop */
+            width: 300%; /* Ocupa el 100% de su contenedor */
+            max-width: 400px; /* Limita el tamaño en desktop */
             filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
 
             /* ESTADO INICIAL PARA EL FADE */
@@ -84,10 +84,12 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Opcional: Sutil sombra */
         }
 
         .nosCasamos{
-            margin-top: 120px;
+
+            margin-top: 150px;
+            padding-top: 80px;
               height: auto;
             width: 100%; /* Ocupa el 100% de su contenedor */
-            max-width: 400px; /* Limita el tamaño en desktop */
+            max-width: 200px; /* Limita el tamaño en desktop */
             filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
 
             /* ESTADO INICIAL PARA EL FADE */
@@ -330,7 +332,7 @@ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .nombre-blanco {
-    max-width: 400px; /* Limita el ancho máximo a 400px en escritorio */
+    max-width: 250px; /* Limita el ancho máximo a 400px en escritorio */
     width: 90%; /* Asegura que se adapte al 90% del ancho del contenedor en móvil */
     height: auto;
     margin-top: 20px; /* Espacio superior para separarlo del párrafo */
@@ -392,7 +394,7 @@ color: whitesmoke;
 
 .gracias{
    font-family: 'MiFuentePersonalizada', italianno;
-   font-size: 700%;
+   font-size: 300%;
 }
 
 .contenedor-invitacion {
@@ -438,7 +440,7 @@ color: whitesmoke;
     }
 
     .gracias{
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
 
@@ -473,13 +475,33 @@ color: whitesmoke;
     
     /* Asegurar que el logo y las imágenes de sección se reduzcan */
     .michel,
-    .imgNombres,
-    .nosCasamos,
     #imgAnillos, #imgRegalo, #imgVestimenta, #imgUbicacion {
         max-width: 90%;
         width: auto;
         height: auto;
     }
+
+    .imgNombres{
+        margin-top: 80px;
+         max-width: 80%;
+        width: auto;
+        height: auto;
+        
+    }
+    .nosCasamos{
+        margin-top: 60px;
+         max-width: 50%;
+        width: auto;
+        height: auto;
+    }
+    .nombre-blanco {
+         max-width: 60%;
+        width: auto;
+        height: auto;
+
+    }
+
+
     
     /* Reducir el tamaño de las imágenes circulares */
     #imgAnillos, #imgRegalo, #imgVestimenta, #imgUbicacion {
