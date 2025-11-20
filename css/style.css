@@ -534,7 +534,7 @@ color: whitesmoke;
     }
 
     #iniciarAudioBtn{   
-        top: 550px;
+        top: 610px;
         width: 150px; /* Ejemplo: se reduce de 200px a 150px */
         
         /* Achica el padding y la letra para que se vea compacto */
@@ -564,7 +564,7 @@ color: whitesmoke;
 
     /* --- AJUSTES ESPECÍFICOS PARA .contenedor-superior --- */
     .contenedor-superior {
-        min-height: 100vh; 
+        min-height: 110vh; 
     }
     .contenedor-superior h1 {
         font-size: 1.8rem; 
@@ -642,4 +642,10 @@ color: whitesmoke;
     h1 { font-size: 3rem; }
     h2 { font-size: 1.8rem; }
     p { font-size: 1.05rem; }
+
+      #iniciarAudioBtn{   
+        top: 830px;
+
+    }
 }
+
