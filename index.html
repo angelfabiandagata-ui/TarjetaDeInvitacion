@@ -103,7 +103,7 @@
     </div> <footer>
         <p>Invitaciones Digitales Mi Momento Único. Todos los derechos reservados</p>
         
-        <audio controls autoplay>
+        <audio autoplay>
             <source src="./music/audio.mp3" type="audio/mp3" >
         </audio>
     </footer>
@@ -190,6 +190,23 @@
                 sectionObserver.observe(section);
             });
         });
+
+        const miAudio = document.querySelector('audio');
+
+// Función para iniciar la reproducción
+function iniciarMusica() {
+    miAudio.play().catch(error => {
+        // Manejo de errores si la reproducción falla por alguna razón.
+        console.log("No se pudo iniciar la reproducción automática:", error);
+    });
+    // Elimina el evento para que la música no intente iniciar en cada clic
+    document.removeEventListener('click', iniciarMusica);
+    document.removeEventListener('touchstart', iniciarMusica);
+}
+
+// Escucha el primer clic o toque en el documento
+document.addEventListener('click', iniciarMusica);
+document.addEventListener('touchstart', iniciarMusica);
     </script>
 </body>
 </html>
