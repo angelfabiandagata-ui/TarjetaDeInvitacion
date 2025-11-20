@@ -76,7 +76,7 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Opcional: Sutil sombra */
 
             /* ESTADO INICIAL PARA EL FADE */
             opacity: 0;
-            transition: opacity 2s ease-in-out; /* Duración de la transición */
+            transition: opacity 4s ease-in-out; /* Duración de la transición */
         }
         /* ESTADO FINAL QUE DISPARA JS */
         .imgNombres.loaded {
