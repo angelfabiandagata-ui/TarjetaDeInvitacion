@@ -191,20 +191,28 @@
             });
         });
 
-        const miAudio = document.querySelector('audio');
 
 // Función para iniciar la reproducción
+const miAudio = document.getElementById('miMusica') || document.querySelector('audio');
+
+// 2. Define la función que intenta reproducir la música
 function iniciarMusica() {
-    miAudio.play().catch(error => {
-        // Manejo de errores si la reproducción falla por alguna razón.
-        console.log("No se pudo iniciar la reproducción automática:", error);
+    // Es importante usar .play() dentro de la función del evento
+    miAudio.play().then(() => {
+        // La reproducción fue exitosa
+        console.log("Música iniciada con éxito.");
+        // Remueve los listeners después de la reproducción para que no se ejecuten más
+        document.removeEventListener('click', iniciarMusica);
+        document.removeEventListener('touchstart', iniciarMusica);
+    }).catch(error => {
+        // Maneja el error si el navegador bloquea el intento.
+        console.warn("Intento de reproducción bloqueado:", error);
     });
-    // Elimina el evento para que la música no intente iniciar en cada clic
-    document.removeEventListener('click', iniciarMusica);
-    document.removeEventListener('touchstart', iniciarMusica);
 }
 
-// Escucha el primer clic o toque en el documento
+// 3. Agrega los dos listeners principales para la interacción del usuario:
+//    - 'click' para PC/Desktop
+//    - 'touchstart' para Dispositivos Móviles
 document.addEventListener('click', iniciarMusica);
 document.addEventListener('touchstart', iniciarMusica);
     </script>
