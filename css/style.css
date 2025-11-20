@@ -451,6 +451,10 @@ background-color: var(--color-acento);
 color: #ffffff;
 }
 
+#botonAsistencia{
+    margin-top: 50px;
+    border-color: white;
+}
 /* 9. Estilo para el pie de página */
 footer {
 padding: 25px;
