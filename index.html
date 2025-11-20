@@ -10,16 +10,23 @@
     
     <div class="contenedor-superior">
         <img  class="imgNombres" src="./images/logo-nombres.png" alt="nombres">
+                    
+
 
         </div>
         </div>
-    </div>
+                
+
     
     <div class="contenedor-principal">
-        
-       
+
+
+</div>
         
         <div class="contenedor-invitacion reveal-section">
+            <button id="iniciarAudioBtn">
+        Toca para Iniciar la Música 🎶
+        </button>
             <img id="imgAnillos" src="./images/anillos1.jpg" alt="anillos">
             <h2 style="color: #ffff;">CEREMONIA Y FIESTA</h2>
             <p>
@@ -103,7 +110,7 @@
     </div> <footer>
         <p>Invitaciones Digitales Mi Momento Único. Todos los derechos reservados</p>
         
-        <audio autoplay>
+        <audio autoplay id="miMusica">
             <source src="./music/audio.mp3" type="audio/mp3" >
         </audio>
     </footer>
@@ -192,29 +199,40 @@
         });
 
 
-// Función para iniciar la reproducción
-const miAudio = document.getElementById('miMusica') || document.querySelector('audio');
+const miAudio = document.getElementById('miMusica');
+const controlBtn = document.getElementById('iniciarAudioBtn');
 
-// 2. Define la función que intenta reproducir la música
-function iniciarMusica() {
-    // Es importante usar .play() dentro de la función del evento
-    miAudio.play().then(() => {
-        // La reproducción fue exitosa
-        console.log("Música iniciada con éxito.");
-        // Remueve los listeners después de la reproducción para que no se ejecuten más
-        document.removeEventListener('click', iniciarMusica);
-        document.removeEventListener('touchstart', iniciarMusica);
-    }).catch(error => {
-        // Maneja el error si el navegador bloquea el intento.
-        console.warn("Intento de reproducción bloqueado:", error);
-    });
+// 2. Define la función de control
+function alternarMusica() {
+    // Verifica si el audio está en pausa
+    if (miAudio.paused) {
+        // Si está en pausa, intenta reproducir
+        miAudio.play().then(() => {
+            console.log("Música Reproduciéndose.");
+            // Cambia el texto del botón
+            controlBtn.textContent = 'Libertango ⏸️'; 
+        }).catch(error => {
+            console.warn("Error al intentar reproducir:", error);
+            // Si falla el play (ej. navegador aún bloquea), puedes intentar silenciarlo primero
+            // miAudio.muted = true; miAudio.play(); 
+        });
+
+    } else {
+        // Si NO está en pausa (o sea, se está reproduciendo), la pausa
+        miAudio.pause();
+        console.log("Música Pausada.");
+        // Cambia el texto del botón
+        controlBtn.textContent = 'Libertango ▶️';
+    }
 }
 
-// 3. Agrega los dos listeners principales para la interacción del usuario:
-//    - 'click' para PC/Desktop
-//    - 'touchstart' para Dispositivos Móviles
-document.addEventListener('click', iniciarMusica);
-document.addEventListener('touchstart', iniciarMusica);
+// 3. Agrega el evento de escucha al botón
+// Usamos 'click' (funciona para PC y móvil)
+controlBtn.addEventListener('click', alternarMusica);
+
+// Opcional: Establecer el texto inicial
+// Esto asegura que el botón siempre diga "Iniciar" al cargar la página
+controlBtn.textContent = 'Libertango ▶️';
     </script>
 </body>
 </html>
