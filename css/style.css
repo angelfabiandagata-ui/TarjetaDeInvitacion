@@ -11,6 +11,16 @@
 --font-sans: 'Roboto', sans-serif;
 }
 
+@font-face {
+    font-family: 'MiFuentePersonalizada'; /* El nombre que quieras darle */
+    src: url('../font/Cinzel-VariableFont_wght.ttf') format('cinzel'),
+         url('../font/Italianno-Regular.ttf') format('italianno');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 * {
 box-sizing: border-box;
 margin: 0;
@@ -18,7 +28,7 @@ padding: 0;
 }
 
 body {
-font-family: var(--font-sans);
+font-family: 'MiFuentePersonalizada', cinzel;
 color: var(--color-texto-oscuro);
 background-image: url('../images/fondo4.png');
 background-size: cover; 
@@ -122,11 +132,6 @@ text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 
 .contenedor-invitacion{
 
-      background-image: url(../images/fondo-div1.png);
-    background-size: cover; 
-    background-position: center center; 
-    background-repeat: no-repeat;
-    background-color: #ffffff; 
 background-color: #ffffff;
 position: relative;
 
@@ -155,10 +160,6 @@ padding: 40px 20px;
 
 .contenedor-ubicacion {
     /* El color de fondo que seleccionaste (un tono dorado/marrón) */   
-    background-image: url(../images/fondo-div.png);
-    background-size: cover; 
-    background-position: center center; 
-    background-repeat: no-repeat;
     background-color: #ffffff; 
     color: black; /* Cambia el color del texto a blanco para que contraste con el fondo oscuro */
     
@@ -384,10 +385,14 @@ font-size: 120%;
 
 
 .contenedor-saludo {
-font-style: italic;
 font-size: 1.2rem;
 padding: 60px 0; /* Ajustado el padding horizontal */
 color: whitesmoke;
+}
+
+.gracias{
+   font-family: 'MiFuentePersonalizada', italianno;
+   font-size: 700%;
 }
 
 .contenedor-invitacion {
@@ -431,6 +436,11 @@ color: whitesmoke;
     p {
         font-size: 1rem;
     }
+
+    .gracias{
+        font-size: 4rem;
+    }
+
 
     /* Contenido de las secciones */
     .contenedor-invitacion,
