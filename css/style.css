@@ -30,7 +30,7 @@ padding: 0;
 body {
 font-family: 'MiFuentePersonalizada', cinzel;
 color: var(--color-texto-oscuro);
-background-image: url('../images/fondo4.png');
+background-image: url('../images/fondo-def.jpg');
 background-size: cover; 
 background-position: center center; 
 background-repeat: no-repeat;
@@ -134,11 +134,14 @@ text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 
 .contenedor-invitacion{
 
-background-color: #ffffff;
+background-color: #C6A459 ;
 position: relative;
 
 
+}
 
+#direccion{
+    font-size: 180%;
 }
 
 .contenedor-ubicacion{
@@ -162,7 +165,7 @@ padding: 40px 20px;
 
 .contenedor-ubicacion {
     /* El color de fondo que seleccionaste (un tono dorado/marrón) */   
-    background-color: #ffffff; 
+    background-color:transparent;
     color: black; /* Cambia el color del texto a blanco para que contraste con el fondo oscuro */
     
 }
@@ -172,7 +175,7 @@ padding: 40px 20px;
     display: block; 
     margin-left: auto;
     margin-right: auto;
-    width: 100px; 
+    width: 55px; 
     height: auto;
     margin-top: 25px; /* Espacio entre la fecha/lugar y el logo */
     margin-bottom: 20px; /* Espacio entre el logo y el botón */
@@ -265,7 +268,7 @@ background-color:#808080;
 }
 
 .contenedor-vestimenta{
-background-color: #C6A459;
+background-color: transparent;
 }
 
 .contenedor-saludo{
@@ -296,7 +299,7 @@ color: whitesmoke;
 color: whitesmoke;
 }
 .contenedor-asistencia{
-background-color: transparent;
+background-color: #808080;
 }
 
 
@@ -307,6 +310,7 @@ font-size: 3.5rem; /* Más grande para el título de la pareja */
 text-transform: uppercase;
 letter-spacing: 5px;
 margin-bottom: 10px;
+font-weight: bold;
 }
 
 h2 {
@@ -314,13 +318,42 @@ font-family: var(--font-serif);
 font-size: 2rem;
 text-transform: uppercase;
 margin-bottom: 15px;
+font-weight: bold;
 }
 
 p {
 font-size: 1.1rem;
 margin-bottom: 20px;
 color: var(--color-principal);
+font-weight: bold;
 }
+
+.contenedor-invitacion p {
+font-size: 1.1rem;
+margin-bottom: 20px;
+color: #ffffff;
+}
+
+.contenedor-vestimenta p{
+color: #808080;
+
+}
+
+.contenedor-vestimenta h2{
+color: #808080;
+
+}
+
+.contenedor-asistencia p{
+color: #ffffff;
+
+}
+
+.contenedor-asistencia h2{
+color: #ffffff;
+
+}
+
 
 /* 7. Imágenes de sección (anillos, regalo, etc.) */
 #imgAnillos, #imgRegalo, #imgVestimenta, #imgUbicacion {
@@ -331,11 +364,18 @@ border-radius: 50%; /* Opcional: para dar un toque circular a las imágenes */
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+#imgGracias{
+    width: 400px;
+    height: auto;
+    padding-bottom: 40px;
+}
+
+
 .nombre-blanco {
     max-width: 250px; /* Limita el ancho máximo a 400px en escritorio */
     width: 90%; /* Asegura que se adapte al 90% del ancho del contenedor en móvil */
     height: auto;
-    margin-top: 20px; /* Espacio superior para separarlo del párrafo */
+    margin-top: 50px; /* Espacio superior para separarlo del párrafo */
 }
 
 
@@ -379,6 +419,7 @@ font-size: 100%;
 
 .contenedor-invitacion p {
 white-space: pre-line; /* Mantiene los saltos de línea (\n) si los añades, o los espacios */
+color: #ffffff;
 }
 .contenedor-saludo p{
 color: whitesmoke;
@@ -392,10 +433,6 @@ padding: 60px 0; /* Ajustado el padding horizontal */
 color: whitesmoke;
 }
 
-.gracias{
-   font-family: 'MiFuentePersonalizada', italianno;
-   font-size: 300%;
-}
 
 .contenedor-invitacion {
     /* Asegura que el contenedor pueda alinear el texto de su contenido */
@@ -436,13 +473,16 @@ color: whitesmoke;
     }
 
     p {
-        font-size: 1rem;
+        font-size: 1.0rem;
     }
 
-    .gracias{
-        font-size: 3rem;
+    .contenedor-invitacion p{
+         font-size: 1.0rem;
     }
 
+    #direccion{
+        font-size: 1.2rem;
+    }
 
     /* Contenido de las secciones */
     .contenedor-invitacion,
@@ -452,6 +492,10 @@ color: whitesmoke;
     .contenedor-vestimenta,
     .contenedor-saludo {
         padding: 30px 15px; /* Reducción de padding lateral para aprovechar espacio */
+    }
+
+    .contenedor-asistencia{
+        min-height: 80vh;
     }
 
     /* --- AJUSTES ESPECÍFICOS PARA .contenedor-superior --- */
@@ -474,23 +518,39 @@ color: whitesmoke;
     /* ---------------------------------------------------- */
     
     /* Asegurar que el logo y las imágenes de sección se reduzcan */
-    .michel,
+
     #imgAnillos, #imgRegalo, #imgVestimenta, #imgUbicacion {
-        max-width: 90%;
+        max-width: 60%;
         width: auto;
         height: auto;
     }
 
+    #imgGracias{
+        max-width: 250px;
+    }
+
+    .contenedor-saludo p{
+        font-size: 1rem;
+    }
+
+    .michel{
+        max-width: 40%;
+    }
+
+    .contenedor-ubicacion p{
+        font-size: 1rem;
+    }
+
     .imgNombres{
         margin-top: 80px;
-         max-width: 80%;
+         max-width: 60%;
         width: auto;
         height: auto;
         
     }
     .nosCasamos{
         margin-top: 60px;
-         max-width: 50%;
+         max-width: 40%;
         width: auto;
         height: auto;
     }
