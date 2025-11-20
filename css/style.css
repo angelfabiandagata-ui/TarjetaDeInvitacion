@@ -55,7 +55,7 @@ margin: 0 auto;
 .contenedor-superior {
 position: relative;
 width: 100%;
-min-height: 100vh; /* Ajustado de 100vh a 90vh para evitar problemas de altura en algunos navegadores */
+min-height: 110vh; /* Ajustado de 100vh a 90vh para evitar problemas de altura en algunos navegadores */
 display: flex; /* Para centrar el contenido (si lo hay) dentro de él */
 flex-direction: column;
 justify-content: center; /* Centra verticalmente */
@@ -68,7 +68,7 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Opcional: Sutil sombra */
 
         /* ESTILO CONSOLIDADO Y FADE-IN PARA LA IMAGEN DE NOMBRES */
         .imgNombres {
-            margin-top: 100px;
+            margin-top: 10px;
             height: auto;
             width: 300%; /* Ocupa el 100% de su contenedor */
             max-width: 400px; /* Limita el tamaño en desktop */
@@ -144,7 +144,7 @@ text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 30px;
+    top: 700px;
     z-index: 10;
     /* Otros estilos de tu botón (color, padding, etc.) */
     background-color: #6c757d; /* Ejemplo del color gris de la imagen */
@@ -534,7 +534,7 @@ color: whitesmoke;
     }
 
     #iniciarAudioBtn{   
-        top: 15px;
+        top: 550px;
         width: 150px; /* Ejemplo: se reduce de 200px a 150px */
         
         /* Achica el padding y la letra para que se vea compacto */
